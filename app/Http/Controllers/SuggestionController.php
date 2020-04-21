@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class SuggestionController extends Controller
 {
+    public function index()
+    {
+        $suggestions = Suggestion::all();
+
+        return view('suggestion.index', compact('suggestions'));
+    }
+    
     public function create()
     {
         return view('suggestion.create');
@@ -19,6 +26,6 @@ class SuggestionController extends Controller
             'author' => $request->author
         ]);
 
-        return redirect('/');
+        return redirect()->route('suggestion.index');
     }
 }
