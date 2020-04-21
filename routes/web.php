@@ -18,3 +18,5 @@ Route::get('/', function () {
 Route::get('/suggestions/create', 'SuggestionController@create')->name('suggestion.create');
 Route::post('/suggestions', 'SuggestionController@store')->name('suggestion.store');
 Route::get('/suggestions', 'SuggestionController@index')->name('suggestion.index');
+Route::get('/suggestions/{id}/edit', 'SuggestionController@edit')->name('suggestion.edit');
+Route::patch('/suggestions/{id}', 'SuggestionController@update')->name('suggestion.update');

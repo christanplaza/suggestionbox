@@ -28,4 +28,23 @@ class SuggestionController extends Controller
 
         return redirect()->route('suggestion.index');
     }
+
+    public function edit($suggestion_id)
+    {
+        $suggestion = Suggestion::find($suggestion_id);
+
+        return view('suggestion.edit', compact('suggestion'));
+    }
+
+    public function update($suggestion_id, Request $request)
+    {   
+        $suggestion = Suggestion::find($suggestion_id);
+
+        $suggestion->update([
+            'content' => $request->content,
+            'author' => $request->author
+        ]);
+
+        return redirect()->route('suggestion.index');
+    }
 }
