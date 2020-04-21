@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Suggestion;
 use Illuminate\Http\Request;
 
 class SuggestionController extends Controller
@@ -9,5 +10,15 @@ class SuggestionController extends Controller
     public function create()
     {
         return view('suggestion.create');
+    }
+
+    public function store(Request $request)
+    {
+        Suggestion::create([
+            'content' => $request->content,
+            'author' => $request->author
+        ]);
+
+        return redirect('/');
     }
 }

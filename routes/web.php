@@ -15,4 +15,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/suggestions/create', 'SuggestionController@create');
+Route::get('/suggestions/create', 'SuggestionController@create')->name('suggestion.create');
+Route::post('/suggestions', 'SuggestionController@store')->name('suggestion.store');
