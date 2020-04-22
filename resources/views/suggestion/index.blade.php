@@ -16,6 +16,7 @@
                             <th>ID</th>
                             <th>Author</th>
                             <th>Content</th>
+                            <th>Options</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -24,6 +25,9 @@
                                 <td scope="row">{{ $suggestion->id }}</td>
                                 <td>{{ $suggestion->author }}</td>
                                 <td>{{ $suggestion->content }}</td>
+                                <td>
+                                    <a href="{{ route('suggestion.edit', ['id' => $suggestion->id]) }}" class="btn btn-warning">Edit</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>
