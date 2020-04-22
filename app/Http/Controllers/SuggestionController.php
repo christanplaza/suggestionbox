@@ -21,6 +21,11 @@ class SuggestionController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'content' => 'required|min:3|max:128',
+            'author' => 'required|min:3|max:64'
+        ]);
+        
         Suggestion::create([
             'content' => $request->content,
             'author' => $request->author
