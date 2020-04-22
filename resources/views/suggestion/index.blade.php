@@ -25,8 +25,13 @@
                                 <td scope="row">{{ $suggestion->id }}</td>
                                 <td>{{ $suggestion->author }}</td>
                                 <td>{{ $suggestion->content }}</td>
-                                <td>
-                                    <a href="{{ route('suggestion.edit', ['id' => $suggestion->id]) }}" class="btn btn-warning">Edit</a>
+                                <td class="d-flex">
+                                    <a href="{{ route('suggestion.edit', ['id' => $suggestion->id]) }}" class="btn btn-warning mr-2">Edit</a>
+                                    <form action="{{ route('suggestion.destroy', ['id' => $suggestion->id]) }}" method="POST">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger">Delete</button>
+                                    </form>
                                 </td>
                             </tr>
                         @endforeach

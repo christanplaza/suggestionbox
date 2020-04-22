@@ -20,3 +20,4 @@ Route::post('/suggestions', 'SuggestionController@store')->name('suggestion.stor
 Route::get('/suggestions', 'SuggestionController@index')->name('suggestion.index');
 Route::get('/suggestions/{id}/edit', 'SuggestionController@edit')->name('suggestion.edit');
 Route::patch('/suggestions/{id}', 'SuggestionController@update')->name('suggestion.update');
+Route::delete('/suggestions/{id}', 'SuggestionController@destroy')->name('suggestion.destroy');
