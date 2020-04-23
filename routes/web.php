@@ -21,3 +21,6 @@ Route::get('/suggestions', 'SuggestionController@index')->name('suggestion.index
 Route::get('/suggestions/{id}/edit', 'SuggestionController@edit')->name('suggestion.edit');
 Route::patch('/suggestions/{id}', 'SuggestionController@update')->name('suggestion.update');
 Route::delete('/suggestions/{id}', 'SuggestionController@destroy')->name('suggestion.destroy');
+
+Route::post('/suggestions/{id}/upvote', 'VoteController@upvote')->name('suggestion.upvote');
+Route::delete('/suggestions/{id}/downvote', 'VoteController@downvote')->name('suggestion.downvote');
