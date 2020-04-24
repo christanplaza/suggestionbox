@@ -27,10 +27,13 @@
                                 <td>{{ $suggestion->author }}</td>
                                 <td>{{ $suggestion->content }}</td>
                                 <td class="text-center">
+                                    <span class="my-auto mx-2">
+                                        {{ $suggestion->votes()->count() }}
+                                    </span>
                                     <div class="d-inline-flex">
                                         <form action="{{ route('suggestion.upvote', ['id' => $suggestion->id]) }}" method="POST">
                                             @csrf
-                                            <button type="submit" class="btn btn-light">Upvote</button>
+                                            <button type="submit" class="btn btn-light mr-2">Upvote</button>
                                         </form>
                                         <form action="{{ route('suggestion.downvote', ['id' => $suggestion->id]) }}" method="POST">
                                             @method('DELETE')
