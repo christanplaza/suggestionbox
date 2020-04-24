@@ -38,7 +38,7 @@
                                         <form action="{{ route('suggestion.downvote', ['id' => $suggestion->id]) }}" method="POST">
                                             @method('DELETE')
                                             @csrf
-                                            <button type="submit" class="btn btn-dark">Downvote</button>
+                                            <button type="submit" class="btn btn-dark" {{ $suggestion->votes()->count() > 0 ? '' : 'disabled' }}>Downvote</button>
                                         </form>
                                     </div>
                                 </td>
